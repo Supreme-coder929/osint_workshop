@@ -143,14 +143,6 @@ def advanced_phone_lookup(prefix, number):
 def home():
 	return render_template("home.html")
 
-@app.route("/get_validation", methods=["GET"])
-def get_validation():
-	if request.method == "GET":
-		api_key = request.headers.get("Authorization")
-		if api_key in valid_api_keys:
-			return "Valid API Key"
-		return "Invalid API Key"
-
 @app.route("/get_token", methods=["GET", "POST"])
 def get_auth_key():
 	if request.method == "POST":
